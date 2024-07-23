@@ -1,0 +1,82 @@
+<form [formGroup]="employeeForm" class="department-form">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12 pl-0 pr-0">
+          <h2 class="sec-heading">{{ actionName }} Employee</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-2 col-md-2">&nbsp;</div>
+        <div class="col-lg-8 col-md-8">
+          <div class="input-holder">
+            <div class="row">
+              <div class="col-lg-6 col-md-6">
+                <label>Employee Name</label>
+                <input type="text" formControlName="employeeName" />
+                <span
+                  class="text-danger error-message"
+                  *ngIf="(employeeForm.controls['employeeName'].touched) && employeeForm.controls['employeeName'].errors?.['required']"
+                >
+                Employee Name is required
+                </span>
+              </div>
+              <div class="col-lg-6 col-md-6">
+                <label>Sur Name</label>
+                <input type="text" formControlName="employeeSurName" />
+                <span
+                  class="text-danger error-message"
+                  *ngIf="(employeeForm.controls['employeeSurName'].touched) && employeeForm.controls['employeeSurName'].errors?.['required']"
+                >
+                Employee Sur Name is required
+                </span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 col-md-6">
+                <label>Date of birth</label>
+                <input type="date" formControlName="employeeDob" />
+                <span
+                  class="text-danger error-message"
+                  *ngIf="(employeeForm.controls['employeeDob'].touched) && employeeForm.controls['employeeDob'].errors?.['required']"
+                >
+                Employee Date of birth is required
+                </span>
+              </div>
+              <div class="col-lg-6 col-md-6">
+                <label>Department</label>
+                <select  formControlName="departmentId">
+                    <option *ngFor="let dept of departments" value="{{dept.id}}">{{dept.name}}</option>
+                </select>
+                <span
+                  class="text-danger error-message"
+                  *ngIf="(employeeForm.controls['departmentId'].touched) && employeeForm.controls['departmentId'].errors?.['required']"
+                >
+                  Department is required
+                </span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 pull-right">
+                <button
+                  (click)="saveEmployee()"
+                  class="save-btn"
+                  *ngIf="actionName === 'Add'"
+                >
+                  Save Employee
+                </button>
+                <button
+                  (click)="updateEmployee()"
+                  class="save-btn"
+                  *ngIf="actionName === 'Edit'"
+                >
+                  Update Employee
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-2">&nbsp;</div>
+      </div>
+    </div>
+  </form>
+  

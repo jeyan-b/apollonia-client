@@ -1,0 +1,68 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 pl-0 pr-0">
+        <h2 class="sec-heading">Employees</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">&nbsp;</div>
+      <div class="col-md-8">
+        <div class="table-holder" *ngIf="employees.length">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Employee Name</th>
+                <th>Sur Name</th>
+                <th>Date Of Birth</th>
+                <th>Department</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let emp of employees">
+                <td>{{ emp.name }}</td>
+                <td>{{ emp.surName }}</td>
+                <td>{{ emp.dob }}</td>
+                <td>{{ emp.department }}</td>
+                <td class="action-cell">
+                  <img
+                    src="assets/images/edit.png"
+                    (click)="editEmployee(emp._id)"
+                  />
+                  <img
+                    src="assets/images/delete.png"
+                    (click)="deleteEmployee(emp)"
+                  />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="no-data-found" *ngIf="!employees.length">
+          <img src="assets/images/no-data.png" />
+          <p>No data found, please add employee to see the list</p>
+        </div>
+      </div>
+      <div class="col-md-2">&nbsp;</div>
+    </div>
+  </div>
+  
+  <div class="delete-popup-holder" *ngIf="isDelete">
+    <div class="delete-popup">
+      <img src="assets/images/warning.png" />
+      <h4>Are you sure ?</h4>
+      <p>
+        Do you want to delete <b>{{ deletableEmp.name }}</b> employee?
+      </p>
+      <small class="delete-small-text"
+        >It may affect your org profile.</small
+      >
+      <button class="popup-btn cancel-btn" (click)="closeDeletePopup()">
+        Cancel
+      </button>
+      <button class="popup-btn delete-btn" (click)="deleteEmp()">
+        Yes, Delete
+      </button>
+    </div>
+  </div>
+  

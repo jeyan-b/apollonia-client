@@ -1,0 +1,58 @@
+<form [formGroup]="departmentForm" class="department-form">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 pl-0 pr-0">
+        <h2 class="sec-heading">{{ actionName }} Department</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-2 col-md-2">&nbsp;</div>
+      <div class="col-lg-8 col-md-8">
+        <div class="input-holder">
+          <div class="row">
+            <div class="col-lg-6 col-md-6">
+              <label>Department Name</label>
+              <input type="text" formControlName="departmentName" />
+              <span
+                class="text-danger error-message"
+                *ngIf="(departmentForm.controls['departmentName'].touched) && departmentForm.controls['departmentName'].errors?.['required']"
+              >
+                Department Name is required
+              </span>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <label>Department Id</label>
+
+              <input type="text" formControlName="departmentId" />
+              <span
+                class="text-danger error-message"
+                *ngIf="(departmentForm.controls['departmentId'].touched) && departmentForm.controls['departmentId'].errors?.['required']"
+              >
+                Department Id is required
+              </span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 pull-right">
+              <button
+                (click)="saveDepartment()"
+                class="save-btn"
+                *ngIf="actionName === 'Add'"
+              >
+                Save Department
+              </button>
+              <button
+                (click)="updateDepartment()"
+                class="save-btn"
+                *ngIf="actionName === 'Edit'"
+              >
+                Update Department
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4">&nbsp;</div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,58 @@
+.department-form label {
+  float: left;
+  width: 100%;
+  padding: 10px 0px;
+}
+
+.input-holder {
+  margin: 30px auto;
+  float: none;
+  border-radius: 5px;
+  display: block;
+  border: 1px solid #c8bfbf;
+  padding: 15px 15px;
+  background-color: #f4f4f4;
+}
+
+.input-holder input {
+  width: 100%;
+  border: 1px solid #a4a4a4;
+  height: 30px;
+  border-radius: 4px;
+}
+
+.input-holder input.ng-invalid.ng-touched {
+  border-color: red;
+}
+
+.pr-0 {
+  padding-right: 0px;
+}
+
+.pl-0 {
+  padding-left: 0px;
+}
+
+.save-btn {
+  color: white;
+  border: none;
+  padding: 5px 15px 7px 15px;
+  width: 100%;
+  border-radius: 4px;
+  background: rgb(0, 178, 255);
+  background: linear-gradient(to left, rgb(0, 178, 255) 50%, #4747ff 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: all 2s ease;
+  max-width: 200px;
+  margin: 15px auto;
+  float: none;
+  display: block;
+}
+
+.save-btn:hover {
+  background-position: left bottom;
+}
+.error-message {
+  font-size: 12px;
+}

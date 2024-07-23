@@ -1,0 +1,63 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12 pl-0 pr-0">
+      <h2 class="sec-heading">All Department</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">&nbsp;</div>
+    <div class="col-md-8">
+      <div class="table-holder" *ngIf="departments.length">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Department Name</th>
+              <th>Department id</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let dept of departments">
+              <td>{{ dept.name }}</td>
+              <td>{{ dept.id }}</td>
+              <td class="action-cell">
+                <img
+                  src="assets/images/edit.png"
+                  (click)="editDepartment(dept.id)"
+                />
+                <img
+                  src="assets/images/delete.png"
+                  (click)="deleteDepartment(dept)"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="no-data-found" *ngIf="!departments.length">
+        <img src="assets/images/no-data.png" />
+        <p>No data found, please add department to see the list</p>
+      </div>
+    </div>
+    <div class="col-md-2">&nbsp;</div>
+  </div>
+</div>
+
+<div class="delete-popup-holder" *ngIf="isDelete">
+  <div class="delete-popup">
+    <img src="assets/images/warning.png" />
+    <h4>Are you sure ?</h4>
+    <p>
+      Do you want to delete <b>{{ deletableDept.name }}</b> department?
+    </p>
+    <small class="delete-small-text"
+      >It may affect your employee profile.</small
+    >
+    <button class="popup-btn cancel-btn" (click)="closeDeletePopup()">
+      Cancel
+    </button>
+    <button class="popup-btn delete-btn" (click)="deleteDept()">
+      Yes, Delete
+    </button>
+  </div>
+</div>
